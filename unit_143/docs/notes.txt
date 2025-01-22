@@ -1,0 +1,75 @@
+Testes de Unidade
+
+- Quais os principais riscos da automação?
+  Código-fonte de automação é um ativo
+  - A ferramenta ser descontinuada / deprecada é um risco alto
+  - Perder compatibilidade com novas versões
+
+O Robot Framework é parcialmente agnóstico, muito do que se constrói 
+não depende da sintaxe de uma linguagem ou bibliotecas
+
+O importante para um negócio é encontrar defeitos e manter a estabilidade
+e isso o Robot Framework faz e com a melhor produtividade do mercado
+
+Piramide de Testes
+- Manual:  ~ 120000 ms
+- Web:     ~  20000 ms
+- API:     ~   1700 ms
+- Unidade: ~    120 ms
+
+Teste em 10 minutos
+- Manual:  ~    6 testes   --> Teste de confirmação/Reteste
+- Web:     ~   30 testes   --> Principais operações na interface
+- API:     ~  350 testes   --> Garantir a cobertura de operabilidade
+- Unidade: ~ 5000 testes   --> Teste de Regressão
+
+Concentrar os testes em uma única camada não garante resultado
+
+SonarQube
+- Técnicas de Caixa Branca
+--> Cobertura de Instrução
+--> Cobertura de Ramificação / Decisão
+Se tivessemos 100% de cobertura em todas as camadas (UI, API e Unidade)
+
+
+Testes Automatizados podem seguir o padrão AAA (Triplo A)
+
+Arrange - Configura
+Act     - Executa
+Assert  - Valida
+
+Requisito:
+- Python instalado
+- Framework de Teste de Unidade: Pytest
+  - funciona também como o motor (engine) para os demais testes
+- Gerenciador de Pacotes: pip
+
+
+Existem 2 grandes estratégias de organização de base em automação
+
+                        Separar + de -              Tudo Junto
+Complexidade               Simples                  Exponencial
+Relatório                  Natural                  Criado
+
+Quem testa a automação de teste?
+
+Complexidade Ciclomatica de McCabe
+
+Qual o seu nome? --> José --> Olá José! ---> 1
+Que horas são? --> 08:20 --> Se for < 12:00 --> Bom dia!   ---> 2
+                             Senão          --> Boa tarde!
+
+Para não precisar testar a automação, mantemos a complexidade no mínimo (1)
+
+
+TDD - Test Driven Development
+      Desenvolvimento Direcionado por Teste
+
+Começa a sprint
+- reunião de planning - estórias / tarefas
+- devs criam esqueletos de código para as estórias que vão ser
+- cria os testes de Unidade
+- passa a executar todos os testes de unidade diariamente
+
+
+
