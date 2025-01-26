@@ -2,14 +2,7 @@
 
 ## **Descrição do Exercício**
 
-Na API da Pet Store, Vamos testar o Post da entidade Store
-Etapas:
-1 - Ver a documentação (o que é transmitido na ida e na volta)
-2 - Criar um arquivo csv com os dados
-3 - Duplicar o método padrão (Post Store DDT)
-4 - Parametrizar o body com as variáveis
-5 - Criar os testes em Post Scripts (validar os 6 campos)
-6 - Usar o Runner para rodar o teste
+Na API da Pet Store, Vamos testar o Post da entidade Store, utilizando o Postman.
 
 ### **Objetivo**
 
@@ -17,9 +10,42 @@ O objetivo deste teste é garantir que o endpoint de criação de pedidos da ent
 
 ---
 
-## **Estrutura do Projeto**
+### **Etapas:**
 
-### **1. Arquivo CSV**
+* [x] 1 - Ver a documentação (o que é transmitido na ida e na volta)
+* [x] 2 - Criar um arquivo csv com os dados
+* [x] 3 - Duplicar o método padrão (Post Store DDT)
+* [x] 4 - Parametrizar o body com as variáveis
+* [x] 5 - Criar os testes em Post Scripts (validar os 6 campos)
+* [x] 6 - Usar o Runner para rodar o teste
+
+---
+
+## **Etapas do Exercício**
+
+### **1. Ver a documentação da API**
+
+Antes de começar, acesse a [documentação oficial da Pet Store API](https://petstore.swagger.io/) para entender os dados necessários na requisição e os campos esperados na resposta. O endpoint que vamos usar é:
+
+* **URL:** `/v2/store/order`
+* **Método:** POST
+
+#### **Campos Requeridos na Requisição:**
+
+* `id` (number): ID do pedido.
+* `petId` (number): ID do animal de estimação.
+* `quantity` (number): Quantidade do pedido.
+* `shipDate` (string): Data de envio no formato ISO 8601.
+* `status` (string): Status do pedido. Valores possíveis: `placed`, `approved`, `delivered`, `canceled`.
+* `complete` (boolean): Indica se o pedido foi concluído.
+
+#### **Resposta Esperada:**
+
+A resposta deve retornar um JSON com os mesmos campos enviados na requisição, além de um status HTTP 200 para sucesso.
+
+---
+
+### **2. Criar um arquivo CSV com os dados de teste**
 
 Criou um arquivo chamado `store_data.csv` contendo os dados de entrada para o teste. Cada linha representa uma iteração no teste automatizado.
 
@@ -46,17 +72,17 @@ Cada coluna corresponde a uma variável que será usada para preencher o body da
 
 ---
 
-### **2. Configuração do Postman**
+### **3. Configuração do Postman**
 
 #### **Requisição: POST Store DDT**
 
 Configuração básica da requisição na coleção:
 
-- **URL:** `https://petstore.swagger.io/v2/store`
-- **Método:** POST
-- **Headers:**
-  - Content-Type: application/json
-- **Body (parametrizado):**
+* **URL:** `https://petstore.swagger.io/v2/store`
+* **Método:** POST
+* **Headers:**
+  * Content-Type: application/json
+* **Body (parametrizado):**
 
 ```json
 {
@@ -73,7 +99,7 @@ Os campos entre `{{}}` são placeholders que serão substituídos pelos valores 
 
 ---
 
-### **3. Scripts de Testes (Post-Scripts)**
+### **4. Scripts de Testes (Post-Scripts)**
 
 Os testes são implementados na aba **Tests** da requisição, verificando os campos da resposta e o status code.
 
@@ -129,19 +155,19 @@ pm.test('Verifica o termino', function(){
 
 ---
 
-### **4. Executando o Teste no Runner**
+### **5. Executando o Teste no Runner**
 
 1. Abra o **Collection Runner** no Postman.
 2. Selecione a coleção que contém a requisição `POST Store DDT`.
 3. Configure:
-   - **Arquivo de Dados:** `store_data.csv`
-   - **Número de iterações:** Automático (baseado no número de linhas do CSV).
+   * **Arquivo de Dados:** `store_data.csv`
+   * **Número de iterações:** Automático (baseado no número de linhas do CSV).
 4. Clique em **Run**.
 
 #### **Resultados Esperados:**
 
-- Cada iteração valida os campos `id`, `petId`, `quantity`, `shipDate`, `status` e `complete` retornados pela API.
-- Todos os testes devem passar para confirmar o funcionamento correto do endpoint.
+* Cada iteração valida os campos `id`, `petId`, `quantity`, `shipDate`, `status` e `complete` retornados pela API.
+* Todos os testes devem passar para confirmar o funcionamento correto do endpoint.
 
 ---
 
