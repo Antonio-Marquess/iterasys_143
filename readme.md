@@ -50,17 +50,28 @@ Este repositório foi desenvolvido como parte do curso de Teste de Software da I
 
 ## 📚 Referências
 
-- [Iterasys - Formação em Teste de Software](https://iterasys.com/)  
+### Plataformas de Treinamento
+
+- [Iterasys - Formação em Teste de Software](https://www.iterasys.com.br/)
+
+### Documentação
+
+- [Robot Framework - Documentação Oficial](https://robotframework.org/)
+- [Postman - Documentação Oficial](https://learning.postman.com/docs/getting-started/introduction/)
+
+### Teste de API
+
+- [Swagger Petstore - API de Exemplo](https://petstore.swagger.io/)
 
 <!-- ## 🤝 Contribuindo
 
 Contribuições são bem-vindas! Siga as etapas abaixo:   -->
 
-1. Faça um fork do repositório  
+<!-- 1. Faça um fork do repositório  
 2. Crie uma nova branch: `git checkout -b feature/nova-feature`  
 3. Faça suas alterações e commit: `git commit -m "Adicionei uma nova feature"`  
 4. Envie para o repositório remoto: `git push origin feature/nova-feature`  
-5. Abra um Pull Request  
+5. Abra um Pull Request   -->
 
 ## 📄 Licença
 
