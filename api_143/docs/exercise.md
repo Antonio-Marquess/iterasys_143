@@ -72,7 +72,29 @@ Cada coluna corresponde a uma variável que será usada para preencher o body da
 
 ---
 
-### **3. Configuração do Postman**
+### **3 - Duplicar o método padrão (Post Store DDT)**
+
+* **Passo 1: Localizar a Requisição POST na Coleção**
+  * 1 -> Abra o **Postman**.
+  * 2 -> Vá até a **coleção** onde você já tem a requisição **POST** configurada.
+  * 3 -> Clique na coleção para expandi-la e encontrar a requisição **POST** que você deseja duplicar (por exemplo, `/v2/store/order`).
+
+* **Passo 2: Duplicar a Requisição POST**
+  * 1 -> Com a requisição **POST** aberta, no topo da requisição, clique no ícone de **três pontos verticais** (opções) no canto superior direito da requisição.
+  * 2 -> No menu que aparece, selecione a opção **"Duplicate"** (Duplicar). Isso criará uma **cópia exata** da requisição.
+
+* **Passo 3: Renomear a Nova Requisição**
+
+  * 1 -> Após duplicar a requisição, o **Postman** criará uma nova requisição com o nome padrão **"Copy of [Nome da Requisição]"**.
+  * 2 -> Clique no nome da nova requisição para editar e renomeá-la para algo mais específico, como **"Post Store DDT"** ou algo que ajude a identificar que é para **Data-Driven Testing**.
+
+* **Passo 4: Parametrizar o Body da Requisição**
+
+  * Agora, você vai substituir os **valores fixos** no corpo da requisição por **variáveis** para permitir que o Postman alimente os dados de maneira dinâmica durante o teste.
+
+---
+
+### **4. Configuração do Postman**
 
 #### **Requisição: POST Store DDT**
 
@@ -99,7 +121,7 @@ Os campos entre `{{}}` são placeholders que serão substituídos pelos valores 
 
 ---
 
-### **4. Scripts de Testes (Post-Scripts)**
+### **5. Scripts de Testes (Post-Scripts)**
 
 Os testes são implementados na aba **Tests** da requisição, verificando os campos da resposta e o status code.
 
@@ -155,7 +177,7 @@ pm.test('Verifica o termino', function(){
 
 ---
 
-### **5. Executando o Teste no Runner**
+### **6. Executando o Teste no Runner**
 
 1. Abra o **Collection Runner** no Postman.
 2. Selecione a coleção que contém a requisição `POST Store DDT`.
