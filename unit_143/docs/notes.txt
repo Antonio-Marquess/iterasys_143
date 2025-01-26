@@ -70,6 +70,3 @@ Começa a sprint
 - devs criam esqueletos de código para as estórias que vão ser
 - cria os testes de Unidade
 - passa a executar todos os testes de unidade diariamente
-
-
-
