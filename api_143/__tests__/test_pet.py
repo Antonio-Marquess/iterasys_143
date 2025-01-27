@@ -3,6 +3,8 @@ import pytest
 import requests
 import json
 
+from utils.utils import ler_csv
+
 # (Opcional) 2 - Classe
 
 # 2.1 Atributos/Propriedades
@@ -134,3 +136,47 @@ def test_delete_pet():
     assert response_body["code"] == 200     # valida o funcionamento
     assert response_body["type"] == "unknown"
     assert response_body["message"] == str(pet_id)
+
+@pytest.mark.order(5)
+@pytest.mark.parametrize("id,category_id,category_name,name,tags,status",
+        ler_csv("./fixtures/csv/pets.csv"))
+ 
+def test_post_pet_dinamico(id,category_id,category_name,name,tags,status):
+    pet = {}
+    pet["id"] = int(id)
+    pet["category"] = {}
+    pet["category"]["id"] = int(category_id)
+    pet["category"]["name"] = category_name
+    pet["name"] = name
+    pet ["photoUrls"] = []
+    pet ["tags"] = []
+   
+    tags = tags.split(";")
+    for tag in tags:
+        tag = tag.split("-")
+        tag_formatada = {}
+        tag_formatada["id"] = int(tag[0])
+        tag_formatada["name"] = tag[1]
+        pet["tags"].append(tag_formatada)
+ 
+    pet["status"] = status
+ 
+    # Act / Execute
+    response = requests.post(
+        url=url,
+        headers=headers,
+        data=json.dumps(obj=pet, indent=4), #json body da msg a ser enviada
+        timeout=5
+    )
+ 
+    # Assert / Valida (afirmacao)
+ 
+    response_body = response.json() #formata o json com as quebras de linhas
+ 
+    # validar_pet(response)
+    assert response.status_code == 200
+    assert response_body["id"] == int(id)
+    assert response_body["name"] == name
+    assert response_body["category"]["id"] == int(category_id)
+    assert response_body["category"]["name"] == category_name
+    assert response_body["status"] == status
